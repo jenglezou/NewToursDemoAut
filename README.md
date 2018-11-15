@@ -1,4 +1,4 @@
-New Tours Demo Website - AUtomation using CucumberJvm and Selenium
+New Tours Demo Website - Automation using CucumberJvm and Selenium
 ==================================================================
 
 This project automates a couple of flight booking scenarios using the New Tours Demo website.
