@@ -1,0 +1,463 @@
+package pageobjects;
+import java.util.List;
+import java.util.Map;
+import org.openqa.selenium.support.CacheLookup;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class SelectFlightPage {
+    private Map<String, String> data;
+    private WebDriver driver;
+    private int timeout = 15;
+
+    @FindBy(name = "outFlight")
+    @CacheLookup
+    private List<WebElement> basedOnRoundTrip1270;
+
+    @FindBy(name = "outFlight")
+    @CacheLookup
+    private List<WebElement> basedOnRoundTrip2270;
+
+    @FindBy(name = "outFlight")
+    @CacheLookup
+    private List<WebElement> basedOnRoundTrip3270;
+
+    @FindBy(name = "outFlight")
+    @CacheLookup
+    private List<WebElement> basedOnRoundTrip4270;
+
+    @FindBy(name = "inFlight")
+    @CacheLookup
+    private List<WebElement> basedOnRoundTrip5270;
+
+    @FindBy(name = "inFlight")
+    @CacheLookup
+    private List<WebElement> basedOnRoundTrip6270;
+
+    @FindBy(name = "inFlight")
+    @CacheLookup
+    private List<WebElement> basedOnRoundTrip7270;
+
+    @FindBy(name = "inFlight")
+    @CacheLookup
+    private List<WebElement> basedOnRoundTrip8270;
+
+    @FindBy(name = "reserveFlights")
+    @CacheLookup
+    private WebElement basedOnRoundTrip9270;
+
+    private final String basedOnRoundTrip1Value270 = "Blue Skies Airlines$360$270$5:03";
+
+    private final String basedOnRoundTrip2Value270 = "Blue Skies Airlines$361$271$7:10";
+
+    private final String basedOnRoundTrip3Value270 = "Pangea Airlines$362$274$9:17";
+
+    private final String basedOnRoundTrip4Value270 = "Unified Airlines$363$281$11:24";
+
+    private final String basedOnRoundTrip5Value270 = "Blue Skies Airlines$630$270$12:23";
+
+    private final String basedOnRoundTrip6Value270 = "Blue Skies Airlines$631$273$14:30";
+
+    private final String basedOnRoundTrip7Value270 = "Pangea Airlines$632$282$16:37";
+
+    private final String basedOnRoundTrip8Value270 = "Unified Airlines$633$303$18:44";
+
+    @FindBy(css = "div table tbody tr td:nth-of-type(1) table tbody tr td table tbody tr td table tbody tr:nth-of-type(4) td:nth-of-type(2) font a")
+    @CacheLookup
+    private WebElement carRentals;
+
+    @FindBy(css = "div table tbody tr td:nth-of-type(2) table tbody tr:nth-of-type(2) td table tbody tr td:nth-of-type(5) a")
+    @CacheLookup
+    private WebElement contact;
+
+    @FindBy(css = "div table tbody tr td:nth-of-type(1) table tbody tr td table tbody tr td table tbody tr:nth-of-type(5) td:nth-of-type(2) a")
+    @CacheLookup
+    private WebElement cruises;
+
+    @FindBy(css = "div table tbody tr td:nth-of-type(1) table tbody tr td table tbody tr td table tbody tr:nth-of-type(6) td:nth-of-type(2) a")
+    @CacheLookup
+    private WebElement destinations;
+
+    @FindBy(css = "a[href='mercuryreservation.php']")
+    @CacheLookup
+    private WebElement flights;
+
+    @FindBy(css = "a[href='mercurywelcome.php']")
+    @CacheLookup
+    private WebElement home;
+
+    @FindBy(css = "div table tbody tr td:nth-of-type(1) table tbody tr td table tbody tr td table tbody tr:nth-of-type(3) td:nth-of-type(2) a")
+    @CacheLookup
+    private WebElement hotels;
+
+    @FindBy(css = "div table tbody tr td:nth-of-type(2) table tbody tr:nth-of-type(2) td table tbody tr td:nth-of-type(2) a")
+    @CacheLookup
+    private WebElement itinerary;
+
+    private final String pageLoadedText = "and return flight from the selections below";
+
+    private final String pageUrl = "/mercuryreservation2.php";
+
+    @FindBy(css = "a[href='mercuryregister.php']")
+    @CacheLookup
+    private WebElement profile;
+
+    @FindBy(css = "a[href='mercurysignoff.php']")
+    @CacheLookup
+    private WebElement signoff;
+
+    @FindBy(css = "div table tbody tr td:nth-of-type(2) table tbody tr:nth-of-type(2) td table tbody tr td:nth-of-type(4) a")
+    @CacheLookup
+    private WebElement support;
+
+    @FindBy(css = "div table tbody tr td:nth-of-type(1) table tbody tr td table tbody tr td p:nth-of-type(2) a")
+    @CacheLookup
+    private WebElement useJavaVersion;
+
+    @FindBy(css = "div table tbody tr td:nth-of-type(1) table tbody tr td table tbody tr td table tbody tr:nth-of-type(7) td:nth-of-type(2) a")
+    @CacheLookup
+    private WebElement vacations;
+
+    public SelectFlightPage() {
+    }
+
+    public SelectFlightPage(WebDriver driver) {
+        this();
+        this.driver = driver;
+    }
+
+    public SelectFlightPage(WebDriver driver, Map<String, String> data) {
+        this(driver);
+        this.data = data;
+    }
+
+    public SelectFlightPage(WebDriver driver, Map<String, String> data, int timeout) {
+        this(driver, data);
+        this.timeout = timeout;
+    }
+
+    /**
+     * Click on 270 Based On Round Trip Button.
+     *
+     * @return the SelectFlightPage class instance.
+     */
+    public SelectFlightPage clickBasedOnRoundTrip9Button270() {
+        basedOnRoundTrip9270.click();
+        return this;
+    }
+
+    /**
+     * Click on Car Rentals Link.
+     *
+     * @return the SelectFlightPage class instance.
+     */
+    public SelectFlightPage clickCarRentalsLink() {
+        carRentals.click();
+        return this;
+    }
+
+    /**
+     * Click on Contact Link.
+     *
+     * @return the SelectFlightPage class instance.
+     */
+    public SelectFlightPage clickContactLink() {
+        contact.click();
+        return this;
+    }
+
+    /**
+     * Click on Cruises Link.
+     *
+     * @return the SelectFlightPage class instance.
+     */
+    public SelectFlightPage clickCruisesLink() {
+        cruises.click();
+        return this;
+    }
+
+    /**
+     * Click on Destinations Link.
+     *
+     * @return the SelectFlightPage class instance.
+     */
+    public SelectFlightPage clickDestinationsLink() {
+        destinations.click();
+        return this;
+    }
+
+    /**
+     * Click on Flights Link.
+     *
+     * @return the SelectFlightPage class instance.
+     */
+    public SelectFlightPage clickFlightsLink() {
+        flights.click();
+        return this;
+    }
+
+    /**
+     * Click on Home Link.
+     *
+     * @return the SelectFlightPage class instance.
+     */
+    public SelectFlightPage clickHomeLink() {
+        home.click();
+        return this;
+    }
+
+    /**
+     * Click on Hotels Link.
+     *
+     * @return the SelectFlightPage class instance.
+     */
+    public SelectFlightPage clickHotelsLink() {
+        hotels.click();
+        return this;
+    }
+
+    /**
+     * Click on Itinerary Link.
+     *
+     * @return the SelectFlightPage class instance.
+     */
+    public SelectFlightPage clickItineraryLink() {
+        itinerary.click();
+        return this;
+    }
+
+    /**
+     * Click on Profile Link.
+     *
+     * @return the SelectFlightPage class instance.
+     */
+    public SelectFlightPage clickProfileLink() {
+        profile.click();
+        return this;
+    }
+
+    /**
+     * Click on Signoff Link.
+     *
+     * @return the SelectFlightPage class instance.
+     */
+    public SelectFlightPage clickSignoffLink() {
+        signoff.click();
+        return this;
+    }
+
+    /**
+     * Click on Support Link.
+     *
+     * @return the SelectFlightPage class instance.
+     */
+    public SelectFlightPage clickSupportLink() {
+        support.click();
+        return this;
+    }
+
+    /**
+     * Click on Use Java Version Link.
+     *
+     * @return the SelectFlightPage class instance.
+     */
+    public SelectFlightPage clickUseJavaVersionLink() {
+        useJavaVersion.click();
+        return this;
+    }
+
+    /**
+     * Click on Vacations Link.
+     *
+     * @return the SelectFlightPage class instance.
+     */
+    public SelectFlightPage clickVacationsLink() {
+        vacations.click();
+        return this;
+    }
+
+    /**
+     * Fill every fields in the page.
+     *
+     * @return the SelectFlightPage class instance.
+     */
+    public SelectFlightPage fill() {
+        setBasedOnRoundTrip1RadioButtonField270();
+        setBasedOnRoundTrip2RadioButtonField270();
+        setBasedOnRoundTrip3RadioButtonField270();
+        setBasedOnRoundTrip4RadioButtonField270();
+        setBasedOnRoundTrip5RadioButtonField270();
+        setBasedOnRoundTrip6RadioButtonField270();
+        setBasedOnRoundTrip7RadioButtonField270();
+        setBasedOnRoundTrip8RadioButtonField270();
+        return this;
+    }
+
+    /**
+     * Set default value to 270 Based On Round Trip Radio Button field.
+     *
+     * @return the SelectFlightPage class instance.
+     */
+    public SelectFlightPage setBasedOnRoundTrip1RadioButtonField270() {
+        for (WebElement el : basedOnRoundTrip1270) {
+            if (el.getAttribute("value").equals(basedOnRoundTrip1Value270)) {
+                if (!el.isSelected()) {
+                    el.click();
+                }
+                break;
+            }
+        }
+        return this;
+    }
+
+    /**
+     * Set default value to 270 Based On Round Trip Radio Button field.
+     *
+     * @return the SelectFlightPage class instance.
+     */
+    public SelectFlightPage setBasedOnRoundTrip2RadioButtonField270() {
+        for (WebElement el : basedOnRoundTrip2270) {
+            if (el.getAttribute("value").equals(basedOnRoundTrip2Value270)) {
+                if (!el.isSelected()) {
+                    el.click();
+                }
+                break;
+            }
+        }
+        return this;
+    }
+
+    /**
+     * Set default value to 270 Based On Round Trip Radio Button field.
+     *
+     * @return the SelectFlightPage class instance.
+     */
+    public SelectFlightPage setBasedOnRoundTrip3RadioButtonField270() {
+        for (WebElement el : basedOnRoundTrip3270) {
+            if (el.getAttribute("value").equals(basedOnRoundTrip3Value270)) {
+                if (!el.isSelected()) {
+                    el.click();
+                }
+                break;
+            }
+        }
+        return this;
+    }
+
+    /**
+     * Set default value to 270 Based On Round Trip Radio Button field.
+     *
+     * @return the SelectFlightPage class instance.
+     */
+    public SelectFlightPage setBasedOnRoundTrip4RadioButtonField270() {
+        for (WebElement el : basedOnRoundTrip4270) {
+            if (el.getAttribute("value").equals(basedOnRoundTrip4Value270)) {
+                if (!el.isSelected()) {
+                    el.click();
+                }
+                break;
+            }
+        }
+        return this;
+    }
+
+    /**
+     * Set default value to 270 Based On Round Trip Radio Button field.
+     *
+     * @return the SelectFlightPage class instance.
+     */
+    public SelectFlightPage setBasedOnRoundTrip5RadioButtonField270() {
+        for (WebElement el : basedOnRoundTrip5270) {
+            if (el.getAttribute("value").equals(basedOnRoundTrip5Value270)) {
+                if (!el.isSelected()) {
+                    el.click();
+                }
+                break;
+            }
+        }
+        return this;
+    }
+
+    /**
+     * Set default value to 270 Based On Round Trip Radio Button field.
+     *
+     * @return the SelectFlightPage class instance.
+     */
+    public SelectFlightPage setBasedOnRoundTrip6RadioButtonField270() {
+        for (WebElement el : basedOnRoundTrip6270) {
+            if (el.getAttribute("value").equals(basedOnRoundTrip6Value270)) {
+                if (!el.isSelected()) {
+                    el.click();
+                }
+                break;
+            }
+        }
+        return this;
+    }
+
+    /**
+     * Set default value to 270 Based On Round Trip Radio Button field.
+     *
+     * @return the SelectFlightPage class instance.
+     */
+    public SelectFlightPage setBasedOnRoundTrip7RadioButtonField270() {
+        for (WebElement el : basedOnRoundTrip7270) {
+            if (el.getAttribute("value").equals(basedOnRoundTrip7Value270)) {
+                if (!el.isSelected()) {
+                    el.click();
+                }
+                break;
+            }
+        }
+        return this;
+    }
+
+    /**
+     * Set default value to 270 Based On Round Trip Radio Button field.
+     *
+     * @return the SelectFlightPage class instance.
+     */
+    public SelectFlightPage setBasedOnRoundTrip8RadioButtonField270() {
+        for (WebElement el : basedOnRoundTrip8270) {
+            if (el.getAttribute("value").equals(basedOnRoundTrip8Value270)) {
+                if (!el.isSelected()) {
+                    el.click();
+                }
+                break;
+            }
+        }
+        return this;
+    }
+
+    /**
+     * Verify that the page loaded completely.
+     *
+     * @return the SelectFlightPage class instance.
+     */
+    public SelectFlightPage verifyPageLoaded() {
+        (new WebDriverWait(driver, timeout)).until(new ExpectedCondition<Boolean>() {
+            public Boolean apply(WebDriver d) {
+                return d.getPageSource().contains(pageLoadedText);
+            }
+        });
+        return this;
+    }
+
+    /**
+     * Verify that current page URL matches the expected URL.
+     *
+     * @return the SelectFlightPage class instance.
+     */
+    public SelectFlightPage verifyPageUrl() {
+        (new WebDriverWait(driver, timeout)).until(new ExpectedCondition<Boolean>() {
+            public Boolean apply(WebDriver d) {
+                return d.getCurrentUrl().contains(pageUrl);
+            }
+        });
+        return this;
+    }
+}

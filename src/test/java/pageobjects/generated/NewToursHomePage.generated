@@ -1,0 +1,361 @@
+package pageobjects;
+import java.util.List;
+import java.util.Map;
+import org.openqa.selenium.support.CacheLookup;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class NewToursHomePage {
+    private Map<String, String> data;
+    private WebDriver driver;
+    private int timeout = 15;
+
+    @FindBy(css = "a[href='http://businesstravel.about.com/mbody.htm?PM=78_101_T&cob=home']")
+    @CacheLookup
+    private WebElement businessTravelAboutCom;
+
+    @FindBy(css = "div table tbody tr td:nth-of-type(1) table tbody tr td table tbody tr td table tbody tr:nth-of-type(4) td:nth-of-type(2) font a")
+    @CacheLookup
+    private WebElement carRentals;
+
+    @FindBy(css = "div table tbody tr td:nth-of-type(2) table tbody tr:nth-of-type(2) td table tbody tr td:nth-of-type(4) a")
+    @CacheLookup
+    private WebElement contact;
+
+    @FindBy(css = "a[href='mercurycruise.php']")
+    @CacheLookup
+    private WebElement cruises;
+
+    @FindBy(css = "div table tbody tr td:nth-of-type(1) table tbody tr td table tbody tr td table tbody tr:nth-of-type(6) td:nth-of-type(2) a")
+    @CacheLookup
+    private WebElement destinations;
+
+    @FindBy(css = "div table tbody tr td:nth-of-type(2) table tbody tr:nth-of-type(4) td table tbody tr td:nth-of-type(2) table tbody tr:nth-of-type(2) td:nth-of-type(3) form table tbody tr:nth-of-type(8) td table tbody tr td:nth-of-type(2) font a")
+    @CacheLookup
+    private WebElement featuredVacationDestinations;
+
+    @FindBy(css = "a[href='mercuryreservation.php']")
+    @CacheLookup
+    private WebElement flights;
+
+    @FindBy(css = "a[href='mercurywelcome.php']")
+    @CacheLookup
+    private WebElement home;
+
+    @FindBy(css = "div table tbody tr td:nth-of-type(1) table tbody tr td table tbody tr td table tbody tr:nth-of-type(3) td:nth-of-type(2) a")
+    @CacheLookup
+    private WebElement hotels;
+
+    @FindBy(name = "login")
+    @CacheLookup
+    private WebElement login;
+
+    private final String pageLoadedText = "to find the lowest fare on participating";
+
+    private final String pageUrl = "/";
+
+    @FindBy(css = "div table tbody tr td:nth-of-type(2) table tbody tr:nth-of-type(2) td table tbody tr td:nth-of-type(2) a")
+    @CacheLookup
+    private WebElement register;
+
+    @FindBy(css = "div table tbody tr td:nth-of-type(2) table tbody tr:nth-of-type(4) td table tbody tr td:nth-of-type(2) table tbody tr:nth-of-type(2) td:nth-of-type(3) form table tbody tr:nth-of-type(10) td table tbody tr td:nth-of-type(2) font a")
+    @CacheLookup
+    private WebElement registerHere;
+
+    @FindBy(css = "a[href='http://www.salon.com/travel/index.html']")
+    @CacheLookup
+    private WebElement salonTravel;
+
+    @FindBy(css = "a[href='mercurysignon.php']")
+    @CacheLookup
+    private WebElement signon;
+
+    @FindBy(css = "div table tbody tr td:nth-of-type(2) table tbody tr:nth-of-type(2) td table tbody tr td:nth-of-type(3) a")
+    @CacheLookup
+    private WebElement support;
+
+    @FindBy(name = "userName")
+    @CacheLookup
+    private WebElement usersCanSigninHereToFind1;
+
+    @FindBy(name = "password")
+    @CacheLookup
+    private WebElement usersCanSigninHereToFind2;
+
+    @FindBy(css = "div table tbody tr td:nth-of-type(1) table tbody tr td table tbody tr td table tbody tr:nth-of-type(7) td:nth-of-type(2) a")
+    @CacheLookup
+    private WebElement vacations;
+
+    @FindBy(css = "div table tbody tr td:nth-of-type(2) table tbody tr:nth-of-type(4) td table tbody tr td:nth-of-type(2) table tbody tr:nth-of-type(2) td:nth-of-type(3) form table tbody tr:nth-of-type(6) td table tbody tr td:nth-of-type(2) font a")
+    @CacheLookup
+    private WebElement yourDestination;
+
+    public NewToursHomePage() {
+    }
+
+    public NewToursHomePage(WebDriver driver) {
+        this();
+        this.driver = driver;
+    }
+
+    public NewToursHomePage(WebDriver driver, Map<String, String> data) {
+        this(driver);
+        this.data = data;
+    }
+
+    public NewToursHomePage(WebDriver driver, Map<String, String> data, int timeout) {
+        this(driver, data);
+        this.timeout = timeout;
+    }
+
+    /**
+     * Click on Business Travel About.com Link.
+     *
+     * @return the NewToursHomePage class instance.
+     */
+    public NewToursHomePage clickBusinessTravelAboutComLink() {
+        businessTravelAboutCom.click();
+        return this;
+    }
+
+    /**
+     * Click on Car Rentals Link.
+     *
+     * @return the NewToursHomePage class instance.
+     */
+    public NewToursHomePage clickCarRentalsLink() {
+        carRentals.click();
+        return this;
+    }
+
+    /**
+     * Click on Contact Link.
+     *
+     * @return the NewToursHomePage class instance.
+     */
+    public NewToursHomePage clickContactLink() {
+        contact.click();
+        return this;
+    }
+
+    /**
+     * Click on Cruises Link.
+     *
+     * @return the NewToursHomePage class instance.
+     */
+    public NewToursHomePage clickCruisesLink() {
+        cruises.click();
+        return this;
+    }
+
+    /**
+     * Click on Destinations Link.
+     *
+     * @return the NewToursHomePage class instance.
+     */
+    public NewToursHomePage clickDestinationsLink() {
+        destinations.click();
+        return this;
+    }
+
+    /**
+     * Click on Featured Vacation Destinations Link.
+     *
+     * @return the NewToursHomePage class instance.
+     */
+    public NewToursHomePage clickFeaturedVacationDestinationsLink() {
+        featuredVacationDestinations.click();
+        return this;
+    }
+
+    /**
+     * Click on Flights Link.
+     *
+     * @return the NewToursHomePage class instance.
+     */
+    public NewToursHomePage clickFlightsLink() {
+        flights.click();
+        return this;
+    }
+
+    /**
+     * Click on Home Link.
+     *
+     * @return the NewToursHomePage class instance.
+     */
+    public NewToursHomePage clickHomeLink() {
+        home.click();
+        return this;
+    }
+
+    /**
+     * Click on Hotels Link.
+     *
+     * @return the NewToursHomePage class instance.
+     */
+    public NewToursHomePage clickHotelsLink() {
+        hotels.click();
+        return this;
+    }
+
+    /**
+     * Click on Login Button.
+     *
+     * @return the NewToursHomePage class instance.
+     */
+    public NewToursHomePage clickLoginButton() {
+        login.click();
+        return this;
+    }
+
+    /**
+     * Click on Register Here Link.
+     *
+     * @return the NewToursHomePage class instance.
+     */
+    public NewToursHomePage clickRegisterHereLink() {
+        registerHere.click();
+        return this;
+    }
+
+    /**
+     * Click on Register Link.
+     *
+     * @return the NewToursHomePage class instance.
+     */
+    public NewToursHomePage clickRegisterLink() {
+        register.click();
+        return this;
+    }
+
+    /**
+     * Click on Salon Travel Link.
+     *
+     * @return the NewToursHomePage class instance.
+     */
+    public NewToursHomePage clickSalonTravelLink() {
+        salonTravel.click();
+        return this;
+    }
+
+    /**
+     * Click on Signon Link.
+     *
+     * @return the NewToursHomePage class instance.
+     */
+    public NewToursHomePage clickSignonLink() {
+        signon.click();
+        return this;
+    }
+
+    /**
+     * Click on Support Link.
+     *
+     * @return the NewToursHomePage class instance.
+     */
+    public NewToursHomePage clickSupportLink() {
+        support.click();
+        return this;
+    }
+
+    /**
+     * Click on Vacations Link.
+     *
+     * @return the NewToursHomePage class instance.
+     */
+    public NewToursHomePage clickVacationsLink() {
+        vacations.click();
+        return this;
+    }
+
+    /**
+     * Click on Your Destination Link.
+     *
+     * @return the NewToursHomePage class instance.
+     */
+    public NewToursHomePage clickYourDestinationLink() {
+        yourDestination.click();
+        return this;
+    }
+
+    /**
+     * Fill every fields in the page.
+     *
+     * @return the NewToursHomePage class instance.
+     */
+    public NewToursHomePage fill() {
+        setUsersCanSigninHereToFind1PasswordField();
+        setUsersCanSigninHereToFind2PasswordField();
+        return this;
+    }
+
+    /**
+     * Set default value to Users Can Signin Here To Find The Lowest Fare On Participating Password field.
+     *
+     * @return the NewToursHomePage class instance.
+     */
+    public NewToursHomePage setUsersCanSigninHereToFind1PasswordField() {
+        return setUsersCanSigninHereToFind1PasswordField(data.get("USERS_CAN_SIGNIN_HERE_TO_FIND_1"));
+    }
+
+    /**
+     * Set value to Users Can Signin Here To Find The Lowest Fare On Participating Password field.
+     *
+     * @return the NewToursHomePage class instance.
+     */
+    public NewToursHomePage setUsersCanSigninHereToFind1PasswordField(String usersCanSigninHereToFind1Value) {
+        usersCanSigninHereToFind1.sendKeys(usersCanSigninHereToFind1Value);
+        return this;
+    }
+
+    /**
+     * Set default value to Users Can Signin Here To Find The Lowest Fare On Participating Password field.
+     *
+     * @return the NewToursHomePage class instance.
+     */
+    public NewToursHomePage setUsersCanSigninHereToFind2PasswordField() {
+        return setUsersCanSigninHereToFind2PasswordField(data.get("USERS_CAN_SIGNIN_HERE_TO_FIND_2"));
+    }
+
+    /**
+     * Set value to Users Can Signin Here To Find The Lowest Fare On Participating Password field.
+     *
+     * @return the NewToursHomePage class instance.
+     */
+    public NewToursHomePage setUsersCanSigninHereToFind2PasswordField(String usersCanSigninHereToFind2Value) {
+        usersCanSigninHereToFind2.sendKeys(usersCanSigninHereToFind2Value);
+        return this;
+    }
+
+    /**
+     * Verify that the page loaded completely.
+     *
+     * @return the NewToursHomePage class instance.
+     */
+    public NewToursHomePage verifyPageLoaded() {
+        (new WebDriverWait(driver, timeout)).until(new ExpectedCondition<Boolean>() {
+            public Boolean apply(WebDriver d) {
+                return d.getPageSource().contains(pageLoadedText);
+            }
+        });
+        return this;
+    }
+
+    /**
+     * Verify that current page URL matches the expected URL.
+     *
+     * @return the NewToursHomePage class instance.
+     */
+    public NewToursHomePage verifyPageUrl() {
+        (new WebDriverWait(driver, timeout)).until(new ExpectedCondition<Boolean>() {
+            public Boolean apply(WebDriver d) {
+                return d.getCurrentUrl().contains(pageUrl);
+            }
+        });
+        return this;
+    }
+}

@@ -1,0 +1,721 @@
+package pageobjects;
+import java.util.List;
+import java.util.Map;
+import org.openqa.selenium.support.CacheLookup;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class FlightFinderPage {
+    private Map<String, String> data;
+    private WebDriver driver;
+    private int timeout = 15;
+
+    @FindBy(css = "div table tbody tr td:nth-of-type(1) table tbody tr td table tbody tr td table tbody tr:nth-of-type(4) td:nth-of-type(2) font a")
+    @CacheLookup
+    private WebElement carRentals;
+
+    @FindBy(css = "div table tbody tr td:nth-of-type(2) table tbody tr:nth-of-type(2) td table tbody tr td:nth-of-type(5) a")
+    @CacheLookup
+    private WebElement contact;
+
+    @FindBy(css = "a[href='mercurycruise.php']")
+    @CacheLookup
+    private WebElement cruises;
+
+    @FindBy(css = "div table tbody tr td:nth-of-type(1) table tbody tr td table tbody tr td table tbody tr:nth-of-type(6) td:nth-of-type(2) a")
+    @CacheLookup
+    private WebElement destinations;
+
+    @FindBy(css = "a[href='mercuryreservation.php']")
+    @CacheLookup
+    private WebElement flights;
+
+    @FindBy(css = "a[href='mercurywelcome.php']")
+    @CacheLookup
+    private WebElement home;
+
+    @FindBy(css = "div table tbody tr td:nth-of-type(1) table tbody tr td table tbody tr td table tbody tr:nth-of-type(3) td:nth-of-type(2) a")
+    @CacheLookup
+    private WebElement hotels;
+
+    @FindBy(css = "a[href='mercuryitinerary.php']")
+    @CacheLookup
+    private WebElement itinerary;
+
+    private final String pageLoadedText = "your flight, don't forget to visit the Mercury Tours Hotel Finder to reserve";
+
+    private final String pageUrl = "/mercuryreservation.php";
+
+    @FindBy(css = "a[href='mercuryprofile.php']")
+    @CacheLookup
+    private WebElement profile;
+
+    @FindBy(css = "a[href='mercurysignoff.php']")
+    @CacheLookup
+    private WebElement signoff;
+
+    @FindBy(css = "div table tbody tr td:nth-of-type(2) table tbody tr:nth-of-type(2) td table tbody tr td:nth-of-type(4) a")
+    @CacheLookup
+    private WebElement support;
+
+    @FindBy(name = "tripType")
+    @CacheLookup
+    private List<WebElement> toSearchForTheLowestFare1;
+
+    @FindBy(name = "servClass")
+    @CacheLookup
+    private List<WebElement> toSearchForTheLowestFare10;
+
+    @FindBy(name = "servClass")
+    @CacheLookup
+    private List<WebElement> toSearchForTheLowestFare11;
+
+    @FindBy(name = "servClass")
+    @CacheLookup
+    private List<WebElement> toSearchForTheLowestFare12;
+
+    @FindBy(name = "airline")
+    @CacheLookup
+    private WebElement toSearchForTheLowestFare13;
+
+    @FindBy(name = "findFlights")
+    @CacheLookup
+    private WebElement toSearchForTheLowestFare14;
+
+    @FindBy(name = "tripType")
+    @CacheLookup
+    private List<WebElement> toSearchForTheLowestFare2;
+
+    @FindBy(name = "passCount")
+    @CacheLookup
+    private WebElement toSearchForTheLowestFare3;
+
+    @FindBy(name = "fromPort")
+    @CacheLookup
+    private WebElement toSearchForTheLowestFare4;
+
+    @FindBy(name = "fromMonth")
+    @CacheLookup
+    private WebElement toSearchForTheLowestFare5;
+
+    @FindBy(name = "fromDay")
+    @CacheLookup
+    private WebElement toSearchForTheLowestFare6;
+
+    @FindBy(name = "toPort")
+    @CacheLookup
+    private WebElement toSearchForTheLowestFare7;
+
+    @FindBy(name = "toMonth")
+    @CacheLookup
+    private WebElement toSearchForTheLowestFare8;
+
+    @FindBy(name = "toDay")
+    @CacheLookup
+    private WebElement toSearchForTheLowestFare9;
+
+    private final String toSearchForTheLowestFare1Value = "roundtrip";
+
+    private final String toSearchForTheLowestFare2Value = "oneway";
+
+    private final String toSearchForTheLowestFare10Value = "Coach";
+
+    private final String toSearchForTheLowestFare11Value = "Business";
+
+    private final String toSearchForTheLowestFare12Value = "First";
+
+    @FindBy(css = "div table tbody tr td:nth-of-type(1) table tbody tr td table tbody tr td table tbody tr:nth-of-type(7) td:nth-of-type(2) a")
+    @CacheLookup
+    private WebElement vacations;
+
+    public FlightFinderPage() {
+    }
+
+    public FlightFinderPage(WebDriver driver) {
+        this();
+        this.driver = driver;
+    }
+
+    public FlightFinderPage(WebDriver driver, Map<String, String> data) {
+        this(driver);
+        this.data = data;
+    }
+
+    public FlightFinderPage(WebDriver driver, Map<String, String> data, int timeout) {
+        this(driver, data);
+        this.timeout = timeout;
+    }
+
+    /**
+     * Click on Car Rentals Link.
+     *
+     * @return the FlightFinderPage class instance.
+     */
+    public FlightFinderPage clickCarRentalsLink() {
+        carRentals.click();
+        return this;
+    }
+
+    /**
+     * Click on Contact Link.
+     *
+     * @return the FlightFinderPage class instance.
+     */
+    public FlightFinderPage clickContactLink() {
+        contact.click();
+        return this;
+    }
+
+    /**
+     * Click on Cruises Link.
+     *
+     * @return the FlightFinderPage class instance.
+     */
+    public FlightFinderPage clickCruisesLink() {
+        cruises.click();
+        return this;
+    }
+
+    /**
+     * Click on Destinations Link.
+     *
+     * @return the FlightFinderPage class instance.
+     */
+    public FlightFinderPage clickDestinationsLink() {
+        destinations.click();
+        return this;
+    }
+
+    /**
+     * Click on Flights Link.
+     *
+     * @return the FlightFinderPage class instance.
+     */
+    public FlightFinderPage clickFlightsLink() {
+        flights.click();
+        return this;
+    }
+
+    /**
+     * Click on Home Link.
+     *
+     * @return the FlightFinderPage class instance.
+     */
+    public FlightFinderPage clickHomeLink() {
+        home.click();
+        return this;
+    }
+
+    /**
+     * Click on Hotels Link.
+     *
+     * @return the FlightFinderPage class instance.
+     */
+    public FlightFinderPage clickHotelsLink() {
+        hotels.click();
+        return this;
+    }
+
+    /**
+     * Click on Itinerary Link.
+     *
+     * @return the FlightFinderPage class instance.
+     */
+    public FlightFinderPage clickItineraryLink() {
+        itinerary.click();
+        return this;
+    }
+
+    /**
+     * Click on Profile Link.
+     *
+     * @return the FlightFinderPage class instance.
+     */
+    public FlightFinderPage clickProfileLink() {
+        profile.click();
+        return this;
+    }
+
+    /**
+     * Click on Signoff Link.
+     *
+     * @return the FlightFinderPage class instance.
+     */
+    public FlightFinderPage clickSignoffLink() {
+        signoff.click();
+        return this;
+    }
+
+    /**
+     * Click on Support Link.
+     *
+     * @return the FlightFinderPage class instance.
+     */
+    public FlightFinderPage clickSupportLink() {
+        support.click();
+        return this;
+    }
+
+    /**
+     * Click on To Search For The Lowest Fare On Participating Airlines Button.
+     *
+     * @return the FlightFinderPage class instance.
+     */
+    public FlightFinderPage clickToSearchForTheLowestFare14Button() {
+        toSearchForTheLowestFare14.click();
+        return this;
+    }
+
+    /**
+     * Click on Vacations Link.
+     *
+     * @return the FlightFinderPage class instance.
+     */
+    public FlightFinderPage clickVacationsLink() {
+        vacations.click();
+        return this;
+    }
+
+    /**
+     * Fill every fields in the page.
+     *
+     * @return the FlightFinderPage class instance.
+     */
+    public FlightFinderPage fill() {
+        setToSearchForTheLowestFare1RadioButtonField();
+        setToSearchForTheLowestFare2RadioButtonField();
+        setToSearchForTheLowestFare3DropDownListField();
+        setToSearchForTheLowestFare4DropDownListField();
+        setToSearchForTheLowestFare5DropDownListField();
+        setToSearchForTheLowestFare6DropDownListField();
+        setToSearchForTheLowestFare7DropDownListField();
+        setToSearchForTheLowestFare8DropDownListField();
+        setToSearchForTheLowestFare9DropDownListField();
+        setToSearchForTheLowestFare10RadioButtonField();
+        setToSearchForTheLowestFare11RadioButtonField();
+        setToSearchForTheLowestFare12RadioButtonField();
+        setToSearchForTheLowestFare13DropDownListField();
+        return this;
+    }
+
+    /**
+     * Set default value to To Search For The Lowest Fare On Participating Airlines Radio Button field.
+     *
+     * @return the FlightFinderPage class instance.
+     */
+    public FlightFinderPage setToSearchForTheLowestFare10RadioButtonField() {
+        for (WebElement el : toSearchForTheLowestFare10) {
+            if (el.getAttribute("value").equals(toSearchForTheLowestFare10Value)) {
+                if (!el.isSelected()) {
+                    el.click();
+                }
+                break;
+            }
+        }
+        return this;
+    }
+
+    /**
+     * Set default value to To Search For The Lowest Fare On Participating Airlines Radio Button field.
+     *
+     * @return the FlightFinderPage class instance.
+     */
+    public FlightFinderPage setToSearchForTheLowestFare11RadioButtonField() {
+        for (WebElement el : toSearchForTheLowestFare11) {
+            if (el.getAttribute("value").equals(toSearchForTheLowestFare11Value)) {
+                if (!el.isSelected()) {
+                    el.click();
+                }
+                break;
+            }
+        }
+        return this;
+    }
+
+    /**
+     * Set default value to To Search For The Lowest Fare On Participating Airlines Radio Button field.
+     *
+     * @return the FlightFinderPage class instance.
+     */
+    public FlightFinderPage setToSearchForTheLowestFare12RadioButtonField() {
+        for (WebElement el : toSearchForTheLowestFare12) {
+            if (el.getAttribute("value").equals(toSearchForTheLowestFare12Value)) {
+                if (!el.isSelected()) {
+                    el.click();
+                }
+                break;
+            }
+        }
+        return this;
+    }
+
+    /**
+     * Set default value to To Search For The Lowest Fare On Participating Airlines Drop Down List field.
+     *
+     * @return the FlightFinderPage class instance.
+     */
+    public FlightFinderPage setToSearchForTheLowestFare13DropDownListField() {
+        return setToSearchForTheLowestFare13DropDownListField(data.get("TO_SEARCH_FOR_THE_LOWEST_FARE_13"));
+    }
+
+    /**
+     * Set value to To Search For The Lowest Fare On Participating Airlines Drop Down List field.
+     *
+     * @return the FlightFinderPage class instance.
+     */
+    public FlightFinderPage setToSearchForTheLowestFare13DropDownListField(String toSearchForTheLowestFare13Value) {
+        new Select(toSearchForTheLowestFare13).selectByVisibleText(toSearchForTheLowestFare13Value);
+        return this;
+    }
+
+    /**
+     * Set default value to To Search For The Lowest Fare On Participating Airlines Radio Button field.
+     *
+     * @return the FlightFinderPage class instance.
+     */
+    public FlightFinderPage setToSearchForTheLowestFare1RadioButtonField() {
+        for (WebElement el : toSearchForTheLowestFare1) {
+            if (el.getAttribute("value").equals(toSearchForTheLowestFare1Value)) {
+                if (!el.isSelected()) {
+                    el.click();
+                }
+                break;
+            }
+        }
+        return this;
+    }
+
+    /**
+     * Set default value to To Search For The Lowest Fare On Participating Airlines Radio Button field.
+     *
+     * @return the FlightFinderPage class instance.
+     */
+    public FlightFinderPage setToSearchForTheLowestFare2RadioButtonField() {
+        for (WebElement el : toSearchForTheLowestFare2) {
+            if (el.getAttribute("value").equals(toSearchForTheLowestFare2Value)) {
+                if (!el.isSelected()) {
+                    el.click();
+                }
+                break;
+            }
+        }
+        return this;
+    }
+
+    /**
+     * Set default value to To Search For The Lowest Fare On Participating Airlines Drop Down List field.
+     *
+     * @return the FlightFinderPage class instance.
+     */
+    public FlightFinderPage setToSearchForTheLowestFare3DropDownListField() {
+        return setToSearchForTheLowestFare3DropDownListField(data.get("TO_SEARCH_FOR_THE_LOWEST_FARE_3"));
+    }
+
+    /**
+     * Set value to To Search For The Lowest Fare On Participating Airlines Drop Down List field.
+     *
+     * @return the FlightFinderPage class instance.
+     */
+    public FlightFinderPage setToSearchForTheLowestFare3DropDownListField(String toSearchForTheLowestFare3Value) {
+        new Select(toSearchForTheLowestFare3).selectByVisibleText(toSearchForTheLowestFare3Value);
+        return this;
+    }
+
+    /**
+     * Set default value to To Search For The Lowest Fare On Participating Airlines Drop Down List field.
+     *
+     * @return the FlightFinderPage class instance.
+     */
+    public FlightFinderPage setToSearchForTheLowestFare4DropDownListField() {
+        return setToSearchForTheLowestFare4DropDownListField(data.get("TO_SEARCH_FOR_THE_LOWEST_FARE_4"));
+    }
+
+    /**
+     * Set value to To Search For The Lowest Fare On Participating Airlines Drop Down List field.
+     *
+     * @return the FlightFinderPage class instance.
+     */
+    public FlightFinderPage setToSearchForTheLowestFare4DropDownListField(String toSearchForTheLowestFare4Value) {
+        new Select(toSearchForTheLowestFare4).selectByVisibleText(toSearchForTheLowestFare4Value);
+        return this;
+    }
+
+    /**
+     * Set default value to To Search For The Lowest Fare On Participating Airlines Drop Down List field.
+     *
+     * @return the FlightFinderPage class instance.
+     */
+    public FlightFinderPage setToSearchForTheLowestFare5DropDownListField() {
+        return setToSearchForTheLowestFare5DropDownListField(data.get("TO_SEARCH_FOR_THE_LOWEST_FARE_5"));
+    }
+
+    /**
+     * Set value to To Search For The Lowest Fare On Participating Airlines Drop Down List field.
+     *
+     * @return the FlightFinderPage class instance.
+     */
+    public FlightFinderPage setToSearchForTheLowestFare5DropDownListField(String toSearchForTheLowestFare5Value) {
+        new Select(toSearchForTheLowestFare5).selectByVisibleText(toSearchForTheLowestFare5Value);
+        return this;
+    }
+
+    /**
+     * Set default value to To Search For The Lowest Fare On Participating Airlines Drop Down List field.
+     *
+     * @return the FlightFinderPage class instance.
+     */
+    public FlightFinderPage setToSearchForTheLowestFare6DropDownListField() {
+        return setToSearchForTheLowestFare6DropDownListField(data.get("TO_SEARCH_FOR_THE_LOWEST_FARE_6"));
+    }
+
+    /**
+     * Set value to To Search For The Lowest Fare On Participating Airlines Drop Down List field.
+     *
+     * @return the FlightFinderPage class instance.
+     */
+    public FlightFinderPage setToSearchForTheLowestFare6DropDownListField(String toSearchForTheLowestFare6Value) {
+        new Select(toSearchForTheLowestFare6).selectByVisibleText(toSearchForTheLowestFare6Value);
+        return this;
+    }
+
+    /**
+     * Set default value to To Search For The Lowest Fare On Participating Airlines Drop Down List field.
+     *
+     * @return the FlightFinderPage class instance.
+     */
+    public FlightFinderPage setToSearchForTheLowestFare7DropDownListField() {
+        return setToSearchForTheLowestFare7DropDownListField(data.get("TO_SEARCH_FOR_THE_LOWEST_FARE_7"));
+    }
+
+    /**
+     * Set value to To Search For The Lowest Fare On Participating Airlines Drop Down List field.
+     *
+     * @return the FlightFinderPage class instance.
+     */
+    public FlightFinderPage setToSearchForTheLowestFare7DropDownListField(String toSearchForTheLowestFare7Value) {
+        new Select(toSearchForTheLowestFare7).selectByVisibleText(toSearchForTheLowestFare7Value);
+        return this;
+    }
+
+    /**
+     * Set default value to To Search For The Lowest Fare On Participating Airlines Drop Down List field.
+     *
+     * @return the FlightFinderPage class instance.
+     */
+    public FlightFinderPage setToSearchForTheLowestFare8DropDownListField() {
+        return setToSearchForTheLowestFare8DropDownListField(data.get("TO_SEARCH_FOR_THE_LOWEST_FARE_8"));
+    }
+
+    /**
+     * Set value to To Search For The Lowest Fare On Participating Airlines Drop Down List field.
+     *
+     * @return the FlightFinderPage class instance.
+     */
+    public FlightFinderPage setToSearchForTheLowestFare8DropDownListField(String toSearchForTheLowestFare8Value) {
+        new Select(toSearchForTheLowestFare8).selectByVisibleText(toSearchForTheLowestFare8Value);
+        return this;
+    }
+
+    /**
+     * Set default value to To Search For The Lowest Fare On Participating Airlines Drop Down List field.
+     *
+     * @return the FlightFinderPage class instance.
+     */
+    public FlightFinderPage setToSearchForTheLowestFare9DropDownListField() {
+        return setToSearchForTheLowestFare9DropDownListField(data.get("TO_SEARCH_FOR_THE_LOWEST_FARE_9"));
+    }
+
+    /**
+     * Set value to To Search For The Lowest Fare On Participating Airlines Drop Down List field.
+     *
+     * @return the FlightFinderPage class instance.
+     */
+    public FlightFinderPage setToSearchForTheLowestFare9DropDownListField(String toSearchForTheLowestFare9Value) {
+        new Select(toSearchForTheLowestFare9).selectByVisibleText(toSearchForTheLowestFare9Value);
+        return this;
+    }
+
+    /**
+     * Unset default value from To Search For The Lowest Fare On Participating Airlines Drop Down List field.
+     *
+     * @return the FlightFinderPage class instance.
+     */
+    public FlightFinderPage unsetToSearchForTheLowestFare13DropDownListField() {
+        return unsetToSearchForTheLowestFare13DropDownListField(data.get("TO_SEARCH_FOR_THE_LOWEST_FARE_13"));
+    }
+
+    /**
+     * Unset value from To Search For The Lowest Fare On Participating Airlines Drop Down List field.
+     *
+     * @return the FlightFinderPage class instance.
+     */
+    public FlightFinderPage unsetToSearchForTheLowestFare13DropDownListField(String toSearchForTheLowestFare13Value) {
+        new Select(toSearchForTheLowestFare13).deselectByVisibleText(toSearchForTheLowestFare13Value);
+        return this;
+    }
+
+    /**
+     * Unset default value from To Search For The Lowest Fare On Participating Airlines Drop Down List field.
+     *
+     * @return the FlightFinderPage class instance.
+     */
+    public FlightFinderPage unsetToSearchForTheLowestFare3DropDownListField() {
+        return unsetToSearchForTheLowestFare3DropDownListField(data.get("TO_SEARCH_FOR_THE_LOWEST_FARE_3"));
+    }
+
+    /**
+     * Unset value from To Search For The Lowest Fare On Participating Airlines Drop Down List field.
+     *
+     * @return the FlightFinderPage class instance.
+     */
+    public FlightFinderPage unsetToSearchForTheLowestFare3DropDownListField(String toSearchForTheLowestFare3Value) {
+        new Select(toSearchForTheLowestFare3).deselectByVisibleText(toSearchForTheLowestFare3Value);
+        return this;
+    }
+
+    /**
+     * Unset default value from To Search For The Lowest Fare On Participating Airlines Drop Down List field.
+     *
+     * @return the FlightFinderPage class instance.
+     */
+    public FlightFinderPage unsetToSearchForTheLowestFare4DropDownListField() {
+        return unsetToSearchForTheLowestFare4DropDownListField(data.get("TO_SEARCH_FOR_THE_LOWEST_FARE_4"));
+    }
+
+    /**
+     * Unset value from To Search For The Lowest Fare On Participating Airlines Drop Down List field.
+     *
+     * @return the FlightFinderPage class instance.
+     */
+    public FlightFinderPage unsetToSearchForTheLowestFare4DropDownListField(String toSearchForTheLowestFare4Value) {
+        new Select(toSearchForTheLowestFare4).deselectByVisibleText(toSearchForTheLowestFare4Value);
+        return this;
+    }
+
+    /**
+     * Unset default value from To Search For The Lowest Fare On Participating Airlines Drop Down List field.
+     *
+     * @return the FlightFinderPage class instance.
+     */
+    public FlightFinderPage unsetToSearchForTheLowestFare5DropDownListField() {
+        return unsetToSearchForTheLowestFare5DropDownListField(data.get("TO_SEARCH_FOR_THE_LOWEST_FARE_5"));
+    }
+
+    /**
+     * Unset value from To Search For The Lowest Fare On Participating Airlines Drop Down List field.
+     *
+     * @return the FlightFinderPage class instance.
+     */
+    public FlightFinderPage unsetToSearchForTheLowestFare5DropDownListField(String toSearchForTheLowestFare5Value) {
+        new Select(toSearchForTheLowestFare5).deselectByVisibleText(toSearchForTheLowestFare5Value);
+        return this;
+    }
+
+    /**
+     * Unset default value from To Search For The Lowest Fare On Participating Airlines Drop Down List field.
+     *
+     * @return the FlightFinderPage class instance.
+     */
+    public FlightFinderPage unsetToSearchForTheLowestFare6DropDownListField() {
+        return unsetToSearchForTheLowestFare6DropDownListField(data.get("TO_SEARCH_FOR_THE_LOWEST_FARE_6"));
+    }
+
+    /**
+     * Unset value from To Search For The Lowest Fare On Participating Airlines Drop Down List field.
+     *
+     * @return the FlightFinderPage class instance.
+     */
+    public FlightFinderPage unsetToSearchForTheLowestFare6DropDownListField(String toSearchForTheLowestFare6Value) {
+        new Select(toSearchForTheLowestFare6).deselectByVisibleText(toSearchForTheLowestFare6Value);
+        return this;
+    }
+
+    /**
+     * Unset default value from To Search For The Lowest Fare On Participating Airlines Drop Down List field.
+     *
+     * @return the FlightFinderPage class instance.
+     */
+    public FlightFinderPage unsetToSearchForTheLowestFare7DropDownListField() {
+        return unsetToSearchForTheLowestFare7DropDownListField(data.get("TO_SEARCH_FOR_THE_LOWEST_FARE_7"));
+    }
+
+    /**
+     * Unset value from To Search For The Lowest Fare On Participating Airlines Drop Down List field.
+     *
+     * @return the FlightFinderPage class instance.
+     */
+    public FlightFinderPage unsetToSearchForTheLowestFare7DropDownListField(String toSearchForTheLowestFare7Value) {
+        new Select(toSearchForTheLowestFare7).deselectByVisibleText(toSearchForTheLowestFare7Value);
+        return this;
+    }
+
+    /**
+     * Unset default value from To Search For The Lowest Fare On Participating Airlines Drop Down List field.
+     *
+     * @return the FlightFinderPage class instance.
+     */
+    public FlightFinderPage unsetToSearchForTheLowestFare8DropDownListField() {
+        return unsetToSearchForTheLowestFare8DropDownListField(data.get("TO_SEARCH_FOR_THE_LOWEST_FARE_8"));
+    }
+
+    /**
+     * Unset value from To Search For The Lowest Fare On Participating Airlines Drop Down List field.
+     *
+     * @return the FlightFinderPage class instance.
+     */
+    public FlightFinderPage unsetToSearchForTheLowestFare8DropDownListField(String toSearchForTheLowestFare8Value) {
+        new Select(toSearchForTheLowestFare8).deselectByVisibleText(toSearchForTheLowestFare8Value);
+        return this;
+    }
+
+    /**
+     * Unset default value from To Search For The Lowest Fare On Participating Airlines Drop Down List field.
+     *
+     * @return the FlightFinderPage class instance.
+     */
+    public FlightFinderPage unsetToSearchForTheLowestFare9DropDownListField() {
+        return unsetToSearchForTheLowestFare9DropDownListField(data.get("TO_SEARCH_FOR_THE_LOWEST_FARE_9"));
+    }
+
+    /**
+     * Unset value from To Search For The Lowest Fare On Participating Airlines Drop Down List field.
+     *
+     * @return the FlightFinderPage class instance.
+     */
+    public FlightFinderPage unsetToSearchForTheLowestFare9DropDownListField(String toSearchForTheLowestFare9Value) {
+        new Select(toSearchForTheLowestFare9).deselectByVisibleText(toSearchForTheLowestFare9Value);
+        return this;
+    }
+
+    /**
+     * Verify that the page loaded completely.
+     *
+     * @return the FlightFinderPage class instance.
+     */
+    public FlightFinderPage verifyPageLoaded() {
+        (new WebDriverWait(driver, timeout)).until(new ExpectedCondition<Boolean>() {
+            public Boolean apply(WebDriver d) {
+                return d.getPageSource().contains(pageLoadedText);
+            }
+        });
+        return this;
+    }
+
+    /**
+     * Verify that current page URL matches the expected URL.
+     *
+     * @return the FlightFinderPage class instance.
+     */
+    public FlightFinderPage verifyPageUrl() {
+        (new WebDriverWait(driver, timeout)).until(new ExpectedCondition<Boolean>() {
+            public Boolean apply(WebDriver d) {
+                return d.getCurrentUrl().contains(pageUrl);
+            }
+        });
+        return this;
+    }
+}

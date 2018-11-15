@@ -1,0 +1,957 @@
+package pageobjects;
+import java.util.List;
+import java.util.Map;
+import org.openqa.selenium.support.CacheLookup;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class BookAFlightPage {
+    private Map<String, String> data;
+    private WebDriver driver;
+    private int timeout = 15;
+
+    @FindBy(css = "div table tbody tr td:nth-of-type(1) table tbody tr td table tbody tr td table tbody tr:nth-of-type(4) td:nth-of-type(2) font a")
+    @CacheLookup
+    private WebElement carRentals;
+
+    @FindBy(css = "div table tbody tr td:nth-of-type(2) table tbody tr:nth-of-type(2) td table tbody tr td:nth-of-type(4) a")
+    @CacheLookup
+    private WebElement contact;
+
+    @FindBy(css = "div table tbody tr td:nth-of-type(1) table tbody tr td table tbody tr td table tbody tr:nth-of-type(5) td:nth-of-type(2) a")
+    @CacheLookup
+    private WebElement cruises;
+
+    @FindBy(css = "div table tbody tr td:nth-of-type(1) table tbody tr td table tbody tr td table tbody tr:nth-of-type(6) td:nth-of-type(2) a")
+    @CacheLookup
+    private WebElement destinations;
+
+    @FindBy(css = "a[href='mercuryreservation.php']")
+    @CacheLookup
+    private WebElement flights;
+
+    @FindBy(css = "a[href='mercurywelcome.php']")
+    @CacheLookup
+    private WebElement home;
+
+    @FindBy(css = "div table tbody tr td:nth-of-type(1) table tbody tr td table tbody tr td table tbody tr:nth-of-type(3) td:nth-of-type(2) a")
+    @CacheLookup
+    private WebElement hotels;
+
+    private final String pageLoadedText = "Same as Billing Address&nbsp;";
+
+    private final String pageUrl = "/mercurypurchase.php";
+
+    @FindBy(css = "a[href='mercuryregister.php']")
+    @CacheLookup
+    private WebElement register;
+
+    @FindBy(css = "a[href='mercurysignoff.php']")
+    @CacheLookup
+    private WebElement signoff;
+
+    @FindBy(css = "div table tbody tr td:nth-of-type(2) table tbody tr:nth-of-type(2) td table tbody tr td:nth-of-type(3) a")
+    @CacheLookup
+    private WebElement support;
+
+    @FindBy(name = "passFirst0")
+    @CacheLookup
+    private WebElement travelItineraryAndMakeYourPurchase1;
+
+    @FindBy(name = "cc_last_name")
+    @CacheLookup
+    private WebElement travelItineraryAndMakeYourPurchase10;
+
+    @FindBy(name = "ticketLess")
+    @CacheLookup
+    private WebElement travelItineraryAndMakeYourPurchase11;
+
+    @FindBy(name = "billAddress1")
+    @CacheLookup
+    private WebElement travelItineraryAndMakeYourPurchase12;
+
+    @FindBy(name = "billAddress2")
+    @CacheLookup
+    private WebElement travelItineraryAndMakeYourPurchase13;
+
+    @FindBy(name = "billCity")
+    @CacheLookup
+    private WebElement travelItineraryAndMakeYourPurchase14;
+
+    @FindBy(name = "billState")
+    @CacheLookup
+    private WebElement travelItineraryAndMakeYourPurchase15;
+
+    @FindBy(name = "billZip")
+    @CacheLookup
+    private WebElement travelItineraryAndMakeYourPurchase16;
+
+    @FindBy(name = "billCountry")
+    @CacheLookup
+    private WebElement travelItineraryAndMakeYourPurchase17;
+
+    @FindBy(name = "ticketLess")
+    @CacheLookup
+    private WebElement travelItineraryAndMakeYourPurchase18;
+
+    @FindBy(name = "delAddress1")
+    @CacheLookup
+    private WebElement travelItineraryAndMakeYourPurchase19;
+
+    @FindBy(name = "passLast0")
+    @CacheLookup
+    private WebElement travelItineraryAndMakeYourPurchase2;
+
+    @FindBy(name = "delAddress2")
+    @CacheLookup
+    private WebElement travelItineraryAndMakeYourPurchase20;
+
+    @FindBy(name = "delCity")
+    @CacheLookup
+    private WebElement travelItineraryAndMakeYourPurchase21;
+
+    @FindBy(name = "delState")
+    @CacheLookup
+    private WebElement travelItineraryAndMakeYourPurchase22;
+
+    @FindBy(name = "delZip")
+    @CacheLookup
+    private WebElement travelItineraryAndMakeYourPurchase23;
+
+    @FindBy(name = "delCountry")
+    @CacheLookup
+    private WebElement travelItineraryAndMakeYourPurchase24;
+
+    @FindBy(name = "buyFlights")
+    @CacheLookup
+    private WebElement travelItineraryAndMakeYourPurchase25;
+
+    @FindBy(name = "pass.0.meal")
+    @CacheLookup
+    private WebElement travelItineraryAndMakeYourPurchase3;
+
+    @FindBy(name = "creditCard")
+    @CacheLookup
+    private WebElement travelItineraryAndMakeYourPurchase4;
+
+    @FindBy(name = "creditnumber")
+    @CacheLookup
+    private WebElement travelItineraryAndMakeYourPurchase5;
+
+    @FindBy(name = "cc_exp_dt_mn")
+    @CacheLookup
+    private WebElement travelItineraryAndMakeYourPurchase6;
+
+    @FindBy(name = "cc_exp_dt_yr")
+    @CacheLookup
+    private WebElement travelItineraryAndMakeYourPurchase7;
+
+    @FindBy(name = "cc_frst_name")
+    @CacheLookup
+    private WebElement travelItineraryAndMakeYourPurchase8;
+
+    @FindBy(name = "cc_mid_name")
+    @CacheLookup
+    private WebElement travelItineraryAndMakeYourPurchase9;
+
+    @FindBy(css = "div table tbody tr td:nth-of-type(1) table tbody tr td table tbody tr td p:nth-of-type(2) a")
+    @CacheLookup
+    private WebElement useJavaVersion;
+
+    @FindBy(css = "div table tbody tr td:nth-of-type(1) table tbody tr td table tbody tr td table tbody tr:nth-of-type(7) td:nth-of-type(2) a")
+    @CacheLookup
+    private WebElement vacations;
+
+    public BookAFlightPage() {
+    }
+
+    public BookAFlightPage(WebDriver driver) {
+        this();
+        this.driver = driver;
+    }
+
+    public BookAFlightPage(WebDriver driver, Map<String, String> data) {
+        this(driver);
+        this.data = data;
+    }
+
+    public BookAFlightPage(WebDriver driver, Map<String, String> data, int timeout) {
+        this(driver, data);
+        this.timeout = timeout;
+    }
+
+    /**
+     * Click on Car Rentals Link.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage clickCarRentalsLink() {
+        carRentals.click();
+        return this;
+    }
+
+    /**
+     * Click on Contact Link.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage clickContactLink() {
+        contact.click();
+        return this;
+    }
+
+    /**
+     * Click on Cruises Link.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage clickCruisesLink() {
+        cruises.click();
+        return this;
+    }
+
+    /**
+     * Click on Destinations Link.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage clickDestinationsLink() {
+        destinations.click();
+        return this;
+    }
+
+    /**
+     * Click on Flights Link.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage clickFlightsLink() {
+        flights.click();
+        return this;
+    }
+
+    /**
+     * Click on Home Link.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage clickHomeLink() {
+        home.click();
+        return this;
+    }
+
+    /**
+     * Click on Hotels Link.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage clickHotelsLink() {
+        hotels.click();
+        return this;
+    }
+
+    /**
+     * Click on Register Link.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage clickRegisterLink() {
+        register.click();
+        return this;
+    }
+
+    /**
+     * Click on Signoff Link.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage clickSignoffLink() {
+        signoff.click();
+        return this;
+    }
+
+    /**
+     * Click on Support Link.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage clickSupportLink() {
+        support.click();
+        return this;
+    }
+
+    /**
+     * Click on Travel Itinerary And Make Your Purchase Button.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage clickTravelItineraryAndMakeYourPurchase25Button() {
+        travelItineraryAndMakeYourPurchase25.click();
+        return this;
+    }
+
+    /**
+     * Click on Use Java Version Link.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage clickUseJavaVersionLink() {
+        useJavaVersion.click();
+        return this;
+    }
+
+    /**
+     * Click on Vacations Link.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage clickVacationsLink() {
+        vacations.click();
+        return this;
+    }
+
+    /**
+     * Fill every fields in the page.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage fill() {
+        setTravelItineraryAndMakeYourPurchase1TextField();
+        setTravelItineraryAndMakeYourPurchase2TextField();
+        setTravelItineraryAndMakeYourPurchase3DropDownListField();
+        setTravelItineraryAndMakeYourPurchase4DropDownListField();
+        setTravelItineraryAndMakeYourPurchase5TextField();
+        setTravelItineraryAndMakeYourPurchase6DropDownListField();
+        setTravelItineraryAndMakeYourPurchase7DropDownListField();
+        setTravelItineraryAndMakeYourPurchase8TextField();
+        setTravelItineraryAndMakeYourPurchase9TextField();
+        setTravelItineraryAndMakeYourPurchase10TextField();
+        setTravelItineraryAndMakeYourPurchase11CheckboxField();
+        setTravelItineraryAndMakeYourPurchase12TextField();
+        setTravelItineraryAndMakeYourPurchase13TextField();
+        setTravelItineraryAndMakeYourPurchase14TextField();
+        setTravelItineraryAndMakeYourPurchase15TextField();
+        setTravelItineraryAndMakeYourPurchase16TextField();
+        setTravelItineraryAndMakeYourPurchase17DropDownListField();
+        setTravelItineraryAndMakeYourPurchase18CheckboxField();
+        setTravelItineraryAndMakeYourPurchase19TextField();
+        setTravelItineraryAndMakeYourPurchase20TextField();
+        setTravelItineraryAndMakeYourPurchase21TextField();
+        setTravelItineraryAndMakeYourPurchase22TextField();
+        setTravelItineraryAndMakeYourPurchase23TextField();
+        setTravelItineraryAndMakeYourPurchase24DropDownListField();
+        return this;
+    }
+
+    /**
+     * Set default value to Travel Itinerary And Make Your Purchase Text field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage setTravelItineraryAndMakeYourPurchase10TextField() {
+        return setTravelItineraryAndMakeYourPurchase10TextField(data.get("TRAVEL_ITINERARY_AND_MAKE_YOUR_PURCHASE_10"));
+    }
+
+    /**
+     * Set value to Travel Itinerary And Make Your Purchase Text field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage setTravelItineraryAndMakeYourPurchase10TextField(String travelItineraryAndMakeYourPurchase10Value) {
+        travelItineraryAndMakeYourPurchase10.sendKeys(travelItineraryAndMakeYourPurchase10Value);
+        return this;
+    }
+
+    /**
+     * Set Travel Itinerary And Make Your Purchase Checkbox field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage setTravelItineraryAndMakeYourPurchase11CheckboxField() {
+        if (!travelItineraryAndMakeYourPurchase11.isSelected()) {
+            travelItineraryAndMakeYourPurchase11.click();
+        }
+        return this;
+    }
+
+    /**
+     * Set default value to Travel Itinerary And Make Your Purchase Text field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage setTravelItineraryAndMakeYourPurchase12TextField() {
+        return setTravelItineraryAndMakeYourPurchase12TextField(data.get("TRAVEL_ITINERARY_AND_MAKE_YOUR_PURCHASE_12"));
+    }
+
+    /**
+     * Set value to Travel Itinerary And Make Your Purchase Text field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage setTravelItineraryAndMakeYourPurchase12TextField(String travelItineraryAndMakeYourPurchase12Value) {
+        travelItineraryAndMakeYourPurchase12.sendKeys(travelItineraryAndMakeYourPurchase12Value);
+        return this;
+    }
+
+    /**
+     * Set default value to Travel Itinerary And Make Your Purchase Text field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage setTravelItineraryAndMakeYourPurchase13TextField() {
+        return setTravelItineraryAndMakeYourPurchase13TextField(data.get("TRAVEL_ITINERARY_AND_MAKE_YOUR_PURCHASE_13"));
+    }
+
+    /**
+     * Set value to Travel Itinerary And Make Your Purchase Text field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage setTravelItineraryAndMakeYourPurchase13TextField(String travelItineraryAndMakeYourPurchase13Value) {
+        travelItineraryAndMakeYourPurchase13.sendKeys(travelItineraryAndMakeYourPurchase13Value);
+        return this;
+    }
+
+    /**
+     * Set default value to Travel Itinerary And Make Your Purchase Text field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage setTravelItineraryAndMakeYourPurchase14TextField() {
+        return setTravelItineraryAndMakeYourPurchase14TextField(data.get("TRAVEL_ITINERARY_AND_MAKE_YOUR_PURCHASE_14"));
+    }
+
+    /**
+     * Set value to Travel Itinerary And Make Your Purchase Text field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage setTravelItineraryAndMakeYourPurchase14TextField(String travelItineraryAndMakeYourPurchase14Value) {
+        travelItineraryAndMakeYourPurchase14.sendKeys(travelItineraryAndMakeYourPurchase14Value);
+        return this;
+    }
+
+    /**
+     * Set default value to Travel Itinerary And Make Your Purchase Text field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage setTravelItineraryAndMakeYourPurchase15TextField() {
+        return setTravelItineraryAndMakeYourPurchase15TextField(data.get("TRAVEL_ITINERARY_AND_MAKE_YOUR_PURCHASE_15"));
+    }
+
+    /**
+     * Set value to Travel Itinerary And Make Your Purchase Text field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage setTravelItineraryAndMakeYourPurchase15TextField(String travelItineraryAndMakeYourPurchase15Value) {
+        travelItineraryAndMakeYourPurchase15.sendKeys(travelItineraryAndMakeYourPurchase15Value);
+        return this;
+    }
+
+    /**
+     * Set default value to Travel Itinerary And Make Your Purchase Text field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage setTravelItineraryAndMakeYourPurchase16TextField() {
+        return setTravelItineraryAndMakeYourPurchase16TextField(data.get("TRAVEL_ITINERARY_AND_MAKE_YOUR_PURCHASE_16"));
+    }
+
+    /**
+     * Set value to Travel Itinerary And Make Your Purchase Text field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage setTravelItineraryAndMakeYourPurchase16TextField(String travelItineraryAndMakeYourPurchase16Value) {
+        travelItineraryAndMakeYourPurchase16.sendKeys(travelItineraryAndMakeYourPurchase16Value);
+        return this;
+    }
+
+    /**
+     * Set default value to Travel Itinerary And Make Your Purchase Drop Down List field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage setTravelItineraryAndMakeYourPurchase17DropDownListField() {
+        return setTravelItineraryAndMakeYourPurchase17DropDownListField(data.get("TRAVEL_ITINERARY_AND_MAKE_YOUR_PURCHASE_17"));
+    }
+
+    /**
+     * Set value to Travel Itinerary And Make Your Purchase Drop Down List field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage setTravelItineraryAndMakeYourPurchase17DropDownListField(String travelItineraryAndMakeYourPurchase17Value) {
+        new Select(travelItineraryAndMakeYourPurchase17).selectByVisibleText(travelItineraryAndMakeYourPurchase17Value);
+        return this;
+    }
+
+    /**
+     * Set Travel Itinerary And Make Your Purchase Checkbox field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage setTravelItineraryAndMakeYourPurchase18CheckboxField() {
+        if (!travelItineraryAndMakeYourPurchase18.isSelected()) {
+            travelItineraryAndMakeYourPurchase18.click();
+        }
+        return this;
+    }
+
+    /**
+     * Set default value to Travel Itinerary And Make Your Purchase Text field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage setTravelItineraryAndMakeYourPurchase19TextField() {
+        return setTravelItineraryAndMakeYourPurchase19TextField(data.get("TRAVEL_ITINERARY_AND_MAKE_YOUR_PURCHASE_19"));
+    }
+
+    /**
+     * Set value to Travel Itinerary And Make Your Purchase Text field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage setTravelItineraryAndMakeYourPurchase19TextField(String travelItineraryAndMakeYourPurchase19Value) {
+        travelItineraryAndMakeYourPurchase19.sendKeys(travelItineraryAndMakeYourPurchase19Value);
+        return this;
+    }
+
+    /**
+     * Set default value to Travel Itinerary And Make Your Purchase Text field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage setTravelItineraryAndMakeYourPurchase1TextField() {
+        return setTravelItineraryAndMakeYourPurchase1TextField(data.get("TRAVEL_ITINERARY_AND_MAKE_YOUR_PURCHASE_1"));
+    }
+
+    /**
+     * Set value to Travel Itinerary And Make Your Purchase Text field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage setTravelItineraryAndMakeYourPurchase1TextField(String travelItineraryAndMakeYourPurchase1Value) {
+        travelItineraryAndMakeYourPurchase1.sendKeys(travelItineraryAndMakeYourPurchase1Value);
+        return this;
+    }
+
+    /**
+     * Set default value to Travel Itinerary And Make Your Purchase Text field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage setTravelItineraryAndMakeYourPurchase20TextField() {
+        return setTravelItineraryAndMakeYourPurchase20TextField(data.get("TRAVEL_ITINERARY_AND_MAKE_YOUR_PURCHASE_20"));
+    }
+
+    /**
+     * Set value to Travel Itinerary And Make Your Purchase Text field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage setTravelItineraryAndMakeYourPurchase20TextField(String travelItineraryAndMakeYourPurchase20Value) {
+        travelItineraryAndMakeYourPurchase20.sendKeys(travelItineraryAndMakeYourPurchase20Value);
+        return this;
+    }
+
+    /**
+     * Set default value to Travel Itinerary And Make Your Purchase Text field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage setTravelItineraryAndMakeYourPurchase21TextField() {
+        return setTravelItineraryAndMakeYourPurchase21TextField(data.get("TRAVEL_ITINERARY_AND_MAKE_YOUR_PURCHASE_21"));
+    }
+
+    /**
+     * Set value to Travel Itinerary And Make Your Purchase Text field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage setTravelItineraryAndMakeYourPurchase21TextField(String travelItineraryAndMakeYourPurchase21Value) {
+        travelItineraryAndMakeYourPurchase21.sendKeys(travelItineraryAndMakeYourPurchase21Value);
+        return this;
+    }
+
+    /**
+     * Set default value to Travel Itinerary And Make Your Purchase Text field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage setTravelItineraryAndMakeYourPurchase22TextField() {
+        return setTravelItineraryAndMakeYourPurchase22TextField(data.get("TRAVEL_ITINERARY_AND_MAKE_YOUR_PURCHASE_22"));
+    }
+
+    /**
+     * Set value to Travel Itinerary And Make Your Purchase Text field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage setTravelItineraryAndMakeYourPurchase22TextField(String travelItineraryAndMakeYourPurchase22Value) {
+        travelItineraryAndMakeYourPurchase22.sendKeys(travelItineraryAndMakeYourPurchase22Value);
+        return this;
+    }
+
+    /**
+     * Set default value to Travel Itinerary And Make Your Purchase Text field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage setTravelItineraryAndMakeYourPurchase23TextField() {
+        return setTravelItineraryAndMakeYourPurchase23TextField(data.get("TRAVEL_ITINERARY_AND_MAKE_YOUR_PURCHASE_23"));
+    }
+
+    /**
+     * Set value to Travel Itinerary And Make Your Purchase Text field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage setTravelItineraryAndMakeYourPurchase23TextField(String travelItineraryAndMakeYourPurchase23Value) {
+        travelItineraryAndMakeYourPurchase23.sendKeys(travelItineraryAndMakeYourPurchase23Value);
+        return this;
+    }
+
+    /**
+     * Set default value to Travel Itinerary And Make Your Purchase Drop Down List field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage setTravelItineraryAndMakeYourPurchase24DropDownListField() {
+        return setTravelItineraryAndMakeYourPurchase24DropDownListField(data.get("TRAVEL_ITINERARY_AND_MAKE_YOUR_PURCHASE_24"));
+    }
+
+    /**
+     * Set value to Travel Itinerary And Make Your Purchase Drop Down List field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage setTravelItineraryAndMakeYourPurchase24DropDownListField(String travelItineraryAndMakeYourPurchase24Value) {
+        new Select(travelItineraryAndMakeYourPurchase24).selectByVisibleText(travelItineraryAndMakeYourPurchase24Value);
+        return this;
+    }
+
+    /**
+     * Set default value to Travel Itinerary And Make Your Purchase Text field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage setTravelItineraryAndMakeYourPurchase2TextField() {
+        return setTravelItineraryAndMakeYourPurchase2TextField(data.get("TRAVEL_ITINERARY_AND_MAKE_YOUR_PURCHASE_2"));
+    }
+
+    /**
+     * Set value to Travel Itinerary And Make Your Purchase Text field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage setTravelItineraryAndMakeYourPurchase2TextField(String travelItineraryAndMakeYourPurchase2Value) {
+        travelItineraryAndMakeYourPurchase2.sendKeys(travelItineraryAndMakeYourPurchase2Value);
+        return this;
+    }
+
+    /**
+     * Set default value to Travel Itinerary And Make Your Purchase Drop Down List field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage setTravelItineraryAndMakeYourPurchase3DropDownListField() {
+        return setTravelItineraryAndMakeYourPurchase3DropDownListField(data.get("TRAVEL_ITINERARY_AND_MAKE_YOUR_PURCHASE_3"));
+    }
+
+    /**
+     * Set value to Travel Itinerary And Make Your Purchase Drop Down List field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage setTravelItineraryAndMakeYourPurchase3DropDownListField(String travelItineraryAndMakeYourPurchase3Value) {
+        new Select(travelItineraryAndMakeYourPurchase3).selectByVisibleText(travelItineraryAndMakeYourPurchase3Value);
+        return this;
+    }
+
+    /**
+     * Set default value to Travel Itinerary And Make Your Purchase Drop Down List field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage setTravelItineraryAndMakeYourPurchase4DropDownListField() {
+        return setTravelItineraryAndMakeYourPurchase4DropDownListField(data.get("TRAVEL_ITINERARY_AND_MAKE_YOUR_PURCHASE_4"));
+    }
+
+    /**
+     * Set value to Travel Itinerary And Make Your Purchase Drop Down List field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage setTravelItineraryAndMakeYourPurchase4DropDownListField(String travelItineraryAndMakeYourPurchase4Value) {
+        new Select(travelItineraryAndMakeYourPurchase4).selectByVisibleText(travelItineraryAndMakeYourPurchase4Value);
+        return this;
+    }
+
+    /**
+     * Set default value to Travel Itinerary And Make Your Purchase Text field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage setTravelItineraryAndMakeYourPurchase5TextField() {
+        return setTravelItineraryAndMakeYourPurchase5TextField(data.get("TRAVEL_ITINERARY_AND_MAKE_YOUR_PURCHASE_5"));
+    }
+
+    /**
+     * Set value to Travel Itinerary And Make Your Purchase Text field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage setTravelItineraryAndMakeYourPurchase5TextField(String travelItineraryAndMakeYourPurchase5Value) {
+        travelItineraryAndMakeYourPurchase5.sendKeys(travelItineraryAndMakeYourPurchase5Value);
+        return this;
+    }
+
+    /**
+     * Set default value to Travel Itinerary And Make Your Purchase Drop Down List field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage setTravelItineraryAndMakeYourPurchase6DropDownListField() {
+        return setTravelItineraryAndMakeYourPurchase6DropDownListField(data.get("TRAVEL_ITINERARY_AND_MAKE_YOUR_PURCHASE_6"));
+    }
+
+    /**
+     * Set value to Travel Itinerary And Make Your Purchase Drop Down List field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage setTravelItineraryAndMakeYourPurchase6DropDownListField(String travelItineraryAndMakeYourPurchase6Value) {
+        new Select(travelItineraryAndMakeYourPurchase6).selectByVisibleText(travelItineraryAndMakeYourPurchase6Value);
+        return this;
+    }
+
+    /**
+     * Set default value to Travel Itinerary And Make Your Purchase Drop Down List field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage setTravelItineraryAndMakeYourPurchase7DropDownListField() {
+        return setTravelItineraryAndMakeYourPurchase7DropDownListField(data.get("TRAVEL_ITINERARY_AND_MAKE_YOUR_PURCHASE_7"));
+    }
+
+    /**
+     * Set value to Travel Itinerary And Make Your Purchase Drop Down List field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage setTravelItineraryAndMakeYourPurchase7DropDownListField(String travelItineraryAndMakeYourPurchase7Value) {
+        new Select(travelItineraryAndMakeYourPurchase7).selectByVisibleText(travelItineraryAndMakeYourPurchase7Value);
+        return this;
+    }
+
+    /**
+     * Set default value to Travel Itinerary And Make Your Purchase Text field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage setTravelItineraryAndMakeYourPurchase8TextField() {
+        return setTravelItineraryAndMakeYourPurchase8TextField(data.get("TRAVEL_ITINERARY_AND_MAKE_YOUR_PURCHASE_8"));
+    }
+
+    /**
+     * Set value to Travel Itinerary And Make Your Purchase Text field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage setTravelItineraryAndMakeYourPurchase8TextField(String travelItineraryAndMakeYourPurchase8Value) {
+        travelItineraryAndMakeYourPurchase8.sendKeys(travelItineraryAndMakeYourPurchase8Value);
+        return this;
+    }
+
+    /**
+     * Set default value to Travel Itinerary And Make Your Purchase Text field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage setTravelItineraryAndMakeYourPurchase9TextField() {
+        return setTravelItineraryAndMakeYourPurchase9TextField(data.get("TRAVEL_ITINERARY_AND_MAKE_YOUR_PURCHASE_9"));
+    }
+
+    /**
+     * Set value to Travel Itinerary And Make Your Purchase Text field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage setTravelItineraryAndMakeYourPurchase9TextField(String travelItineraryAndMakeYourPurchase9Value) {
+        travelItineraryAndMakeYourPurchase9.sendKeys(travelItineraryAndMakeYourPurchase9Value);
+        return this;
+    }
+
+    /**
+     * Unset Travel Itinerary And Make Your Purchase Checkbox field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage unsetTravelItineraryAndMakeYourPurchase11CheckboxField() {
+        if (travelItineraryAndMakeYourPurchase11.isSelected()) {
+            travelItineraryAndMakeYourPurchase11.click();
+        }
+        return this;
+    }
+
+    /**
+     * Unset default value from Travel Itinerary And Make Your Purchase Drop Down List field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage unsetTravelItineraryAndMakeYourPurchase17DropDownListField() {
+        return unsetTravelItineraryAndMakeYourPurchase17DropDownListField(data.get("TRAVEL_ITINERARY_AND_MAKE_YOUR_PURCHASE_17"));
+    }
+
+    /**
+     * Unset value from Travel Itinerary And Make Your Purchase Drop Down List field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage unsetTravelItineraryAndMakeYourPurchase17DropDownListField(String travelItineraryAndMakeYourPurchase17Value) {
+        new Select(travelItineraryAndMakeYourPurchase17).deselectByVisibleText(travelItineraryAndMakeYourPurchase17Value);
+        return this;
+    }
+
+    /**
+     * Unset Travel Itinerary And Make Your Purchase Checkbox field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage unsetTravelItineraryAndMakeYourPurchase18CheckboxField() {
+        if (travelItineraryAndMakeYourPurchase18.isSelected()) {
+            travelItineraryAndMakeYourPurchase18.click();
+        }
+        return this;
+    }
+
+    /**
+     * Unset default value from Travel Itinerary And Make Your Purchase Drop Down List field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage unsetTravelItineraryAndMakeYourPurchase24DropDownListField() {
+        return unsetTravelItineraryAndMakeYourPurchase24DropDownListField(data.get("TRAVEL_ITINERARY_AND_MAKE_YOUR_PURCHASE_24"));
+    }
+
+    /**
+     * Unset value from Travel Itinerary And Make Your Purchase Drop Down List field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage unsetTravelItineraryAndMakeYourPurchase24DropDownListField(String travelItineraryAndMakeYourPurchase24Value) {
+        new Select(travelItineraryAndMakeYourPurchase24).deselectByVisibleText(travelItineraryAndMakeYourPurchase24Value);
+        return this;
+    }
+
+    /**
+     * Unset default value from Travel Itinerary And Make Your Purchase Drop Down List field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage unsetTravelItineraryAndMakeYourPurchase3DropDownListField() {
+        return unsetTravelItineraryAndMakeYourPurchase3DropDownListField(data.get("TRAVEL_ITINERARY_AND_MAKE_YOUR_PURCHASE_3"));
+    }
+
+    /**
+     * Unset value from Travel Itinerary And Make Your Purchase Drop Down List field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage unsetTravelItineraryAndMakeYourPurchase3DropDownListField(String travelItineraryAndMakeYourPurchase3Value) {
+        new Select(travelItineraryAndMakeYourPurchase3).deselectByVisibleText(travelItineraryAndMakeYourPurchase3Value);
+        return this;
+    }
+
+    /**
+     * Unset default value from Travel Itinerary And Make Your Purchase Drop Down List field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage unsetTravelItineraryAndMakeYourPurchase4DropDownListField() {
+        return unsetTravelItineraryAndMakeYourPurchase4DropDownListField(data.get("TRAVEL_ITINERARY_AND_MAKE_YOUR_PURCHASE_4"));
+    }
+
+    /**
+     * Unset value from Travel Itinerary And Make Your Purchase Drop Down List field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage unsetTravelItineraryAndMakeYourPurchase4DropDownListField(String travelItineraryAndMakeYourPurchase4Value) {
+        new Select(travelItineraryAndMakeYourPurchase4).deselectByVisibleText(travelItineraryAndMakeYourPurchase4Value);
+        return this;
+    }
+
+    /**
+     * Unset default value from Travel Itinerary And Make Your Purchase Drop Down List field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage unsetTravelItineraryAndMakeYourPurchase6DropDownListField() {
+        return unsetTravelItineraryAndMakeYourPurchase6DropDownListField(data.get("TRAVEL_ITINERARY_AND_MAKE_YOUR_PURCHASE_6"));
+    }
+
+    /**
+     * Unset value from Travel Itinerary And Make Your Purchase Drop Down List field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage unsetTravelItineraryAndMakeYourPurchase6DropDownListField(String travelItineraryAndMakeYourPurchase6Value) {
+        new Select(travelItineraryAndMakeYourPurchase6).deselectByVisibleText(travelItineraryAndMakeYourPurchase6Value);
+        return this;
+    }
+
+    /**
+     * Unset default value from Travel Itinerary And Make Your Purchase Drop Down List field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage unsetTravelItineraryAndMakeYourPurchase7DropDownListField() {
+        return unsetTravelItineraryAndMakeYourPurchase7DropDownListField(data.get("TRAVEL_ITINERARY_AND_MAKE_YOUR_PURCHASE_7"));
+    }
+
+    /**
+     * Unset value from Travel Itinerary And Make Your Purchase Drop Down List field.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage unsetTravelItineraryAndMakeYourPurchase7DropDownListField(String travelItineraryAndMakeYourPurchase7Value) {
+        new Select(travelItineraryAndMakeYourPurchase7).deselectByVisibleText(travelItineraryAndMakeYourPurchase7Value);
+        return this;
+    }
+
+    /**
+     * Verify that the page loaded completely.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage verifyPageLoaded() {
+        (new WebDriverWait(driver, timeout)).until(new ExpectedCondition<Boolean>() {
+            public Boolean apply(WebDriver d) {
+                return d.getPageSource().contains(pageLoadedText);
+            }
+        });
+        return this;
+    }
+
+    /**
+     * Verify that current page URL matches the expected URL.
+     *
+     * @return the BookAFlightPage class instance.
+     */
+    public BookAFlightPage verifyPageUrl() {
+        (new WebDriverWait(driver, timeout)).until(new ExpectedCondition<Boolean>() {
+            public Boolean apply(WebDriver d) {
+                return d.getCurrentUrl().contains(pageUrl);
+            }
+        });
+        return this;
+    }
+}
