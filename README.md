@@ -5,6 +5,7 @@ This project automates a couple of flight booking scenarios using the New Tours 
 
 To run:
 mvn clean install
+
 mvn clean test
 
 Note: the test is currently configured to run on a Macbook using the macChromeDriver.  It is not set up to auto-detect the host environment.  To run on windows, just change line 27 in src/test/java/step_definitions/Hooks.java to this:
